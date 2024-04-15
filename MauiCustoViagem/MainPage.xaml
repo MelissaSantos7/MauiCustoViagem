@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCustoViagem.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25">
+
+            <Label
+                Text="CUSTO DE VIAGEM"
+                Style="{StaticResource Headline}"/>
+
+
+            <Grid HorizontalOptions="FillAndExpand"  ColumnDefinitions="170, *" RowDefinitions="*, * , *, *, *" RowSpacing="20">
+            
+            <Label
+                Text="ORIGEM: "
+                Style="{StaticResource SubHeadline}"
+                VerticalOptions="Center"
+                Grid.Row="0" Grid.Column="0"/>
+            
+                <Entry x:Name="txt_origem" Grid.Row="0" Grid.Column="1"/>
+
+            <Label
+                Text="DESTINO: "
+                Style="{StaticResource SubHeadline}"
+                Grid.Row="1" Grid.Column="0"/>
+
+                <Entry x:Name="txt_destino" Grid.Row="1" Grid.Column="1"/>
+
+
+                <Label
+                Text="DISTÂNCIA: "
+                Style="{StaticResource SubHeadline}"
+                    Grid.Row="2" Grid.Column="0"/>
+
+                <Entry x:Name="txt_distancia" Grid.Row="2" Grid.Column="1"/>
+
+                <Label
+                Text="RENDIMENTO: "
+                Style="{StaticResource SubHeadline}" 
+                Grid.Row="3" Grid.Column="0"/>
+
+                <Entry x:Name="txt_rendimento" Grid.Row="3" Grid.Column="1"/>
+
+                <Label
+                Text="PREÇO COMBÚSTIVEL: "
+                Style="{StaticResource SubHeadline}" 
+                Grid.Row="4" Grid.Column="0"/>
+
+                <Entry x:Name="txt_combustivel" Grid.Row="4" Grid.Column="1"/>
+
+            </Grid>
+        
+            <Button
+                x:Name="PedagiosBtn"
+                Text="Ver Pedágios" 
+                Clicked="PedagiosBtn_Clicked"
+                HorizontalOptions="Center" />
+
+            <Button
+                x:Name="CalculoBtn"
+                Text="Calcular Custo" 
+                Clicked="CalculoBtn_Clicked"
+                HorizontalOptions="Center" />
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
