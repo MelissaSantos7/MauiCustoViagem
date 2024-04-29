@@ -6,7 +6,8 @@
    <ContentPage
        Title="Viagem">
      <ScrollView>
-        <VerticalStackLayout
+       <Border>
+          <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
 
@@ -63,28 +64,39 @@
             </Grid>
         
             <Button
-                x:Name="PedagiosBtn"
-                Text="Ver Pedágios" 
-                Clicked="PedagiosBtn_Clicked"
-                HorizontalOptions="Center" />
-
-            <Button
                 x:Name="CalculoBtn"
                 Text="Calcular Custo" 
                 Clicked="CalculoBtn_Clicked"
                 HorizontalOptions="Center" />
-        </VerticalStackLayout>
-     </ScrollView>
+          </VerticalStackLayout>
+       </Border>
+        </ScrollView>
    </ContentPage>
 
     <ContentPage
         Title="Pedágio">
-        <ScrollView>
+        <Border>
+            <VerticalStackLayout>
+            <Grid HorizontalOptions="FillAndExpand"  ColumnDefinitions="170, *" RowDefinitions="*, * , *, *, *" RowSpacing="20">
             <Label
                 Text="Local: "
-                FontSize="20"/>
+                FontSize="20"
+                Style="{StaticResource SubHeadline}" 
+                Grid.Row="0" Grid.Column="0"
+                VerticalOptions="Center"/>
 
-            <Entry x:Name="txt_localped" />
-        </ScrollView>
+                <Entry x:Name="txt_localped" Grid.Row="0" Grid.Column="1" />
+                
+
+            </Grid>
+
+            <Button
+                 x:Name="PedagiosBtn"
+                 Text="Ver Pedágios" 
+                 Clicked="PedagiosBtn_Clicked"
+                 HorizontalOptions="Center" />    
+            
+          </VerticalStackLayout>
+        </Border>
     </ContentPage>
 </TabbedPage>
