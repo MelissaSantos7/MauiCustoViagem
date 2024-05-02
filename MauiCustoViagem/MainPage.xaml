@@ -16,7 +16,7 @@
                 Style="{StaticResource Headline}"/>
 
 
-            <Grid HorizontalOptions="FillAndExpand"  ColumnDefinitions="170, *" RowDefinitions="*, * , *, *, *" RowSpacing="20">
+            <Grid HorizontalOptions="FillAndExpand"  ColumnDefinitions="170, *" RowDefinitions="*, * , *, *, *, *, *, *, *" RowSpacing="20">
             
             <Label
                 Text="ORIGEM: "
@@ -60,43 +60,66 @@
                 Grid.Row="4" Grid.Column="0"/>
 
                 <Entry x:Name="txt_combustivel" Grid.Row="4" Grid.Column="1"/>
+                        <Label 
+                            Text="Pedágio"
+                            Style="{StaticResource Headline}"
+                            VerticalOptions="Center"
+                            Grid.Row="6" Grid.Column="1"/>
 
-            </Grid>
-        
-            <Button
-                x:Name="CalculoBtn"
-                Text="Calcular Custo" 
-                Clicked="CalculoBtn_Clicked"
-                HorizontalOptions="Center" />
-          </VerticalStackLayout>
+                        <Label 
+                             Text="Local: "
+                             Style="{StaticResource SubHeadline}"
+                             FontSize="20"
+                             VerticalOptions="Center"
+                             Grid.Row="7" Grid.Column="0"/>
+
+                        <Entry x:Name="txtLocal" Grid.Row="7" Grid.Column="1"/>
+
+                        <Label 
+                             Text="Valor: "
+                             Style="{StaticResource SubHeadline}"
+                             FontSize="20"
+                             VerticalOptions="Center"
+                             Grid.Row="8" Grid.Column="0"/>
+
+                            <Entry x:Name="txtValorPed" Grid.Row="8" Grid.Column="1"/>
+            </Grid>    
+                    <Button
+                            x:Name="CalculoBtn"
+                            Text="Calcular Custo" 
+                            Clicked="CalculoBtn_Clicked"
+                            HorizontalOptions="Center"
+                            Grid.Row="5" Grid.Column="0"/>
+
+                    <Button
+                              x:Name="LimparBtn"
+                              Text="Limpar"
+                              Clicked="LimparBtn_Clicked"
+                              HorizontalOptions="Center"
+                              Grid.Row="5" Grid.Column="1"/>
+
+
+                </VerticalStackLayout>
        </Border>
         </ScrollView>
    </ContentPage>
 
     <ContentPage
-        Title="Pedágio">
+        Title="Lista Pedágio">
         <Border>
-            <VerticalStackLayout>
-            <Grid HorizontalOptions="FillAndExpand"  ColumnDefinitions="170, *" RowDefinitions="*, * , *, *, *" RowSpacing="20">
-            <Label
-                Text="Local: "
-                FontSize="20"
-                Style="{StaticResource SubHeadline}" 
-                Grid.Row="0" Grid.Column="0"
-                VerticalOptions="Center"/>
+            <VerticalStackLayout
+                Padding="30,0"
+                Spacing="25">
+                <Label
+                     Text="Pedágio"
+                     Style="{StaticResource Headline}"/>
 
-                <Entry x:Name="txt_localped" Grid.Row="0" Grid.Column="1" />
-                
-
-            </Grid>
-
-            <Button
-                 x:Name="PedagiosBtn"
-                 Text="Ver Pedágios" 
-                 Clicked="PedagiosBtn_Clicked"
-                 HorizontalOptions="Center" />    
+                <Grid HorizontalOptions="FillAndExpand"  ColumnDefinitions="170, *" RowDefinitions=" * , *, *, *, *" RowSpacing="20">
+                    
+                   
+                </Grid>
             
-          </VerticalStackLayout>
+            </VerticalStackLayout>
         </Border>
     </ContentPage>
 </TabbedPage>
