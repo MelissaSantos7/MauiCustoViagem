@@ -1,4 +1,5 @@
-﻿namespace MauiCustoViagem
+﻿
+namespace MauiCustoViagem
 {
     public partial class MainPage : TabbedPage
     {
@@ -11,10 +12,7 @@
             InitializeComponent();
         }
 
-        private async void PedagiosBtn_Clicked(object sender, EventArgs e)
-        {
-            
-        }
+       
 
         private void CalculoBtn_Clicked(object sender, EventArgs e)
         {
@@ -43,12 +41,51 @@
             //DisplayAlert("")
         }
 
-        private void LimparBtn_Clicked(object sender, EventArgs e)
+        private async void LimparBtn_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                bool Confirmar = await DisplayAlert("Tem Certeza?", "Deseja remover?", "Sim", "Não");
+
+                if (Confirmar)
+                {
+                    txt_origem.Text = "";
+                    txt_destino.Text = "";
+                    txt_distancia.Text = "";
+                    txt_combustivel.Text = "";
+                    txt_rendimento.Text = "";
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("Ops", ex.Message, "OK");
+            }
+
+        }
+
+        private Task<bool> DisplayAlert(string v)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LimparpedBtn_Clicked(object sender, EventArgs e)
         {
 
         }
 
-        private void LimparpedBtn_Clicked(object sender, EventArgs e)
+         
+
+        private void ToolbarItem_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lst_Pedagio_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
 
         }

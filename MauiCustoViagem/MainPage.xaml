@@ -60,29 +60,7 @@
                 Grid.Row="4" Grid.Column="0"/>
 
                 <Entry x:Name="txt_combustivel" Grid.Row="4" Grid.Column="1"/>
-                        <Label 
-                            Text="Pedágio"
-                            Style="{StaticResource Headline}"
-                            VerticalOptions="Center"
-                            Grid.Row="6" Grid.Column="1"/>
-
-                        <Label 
-                             Text="Local: "
-                             Style="{StaticResource SubHeadline}"
-                             FontSize="20"
-                             VerticalOptions="Center"
-                             Grid.Row="7" Grid.Column="0"/>
-
-                        <Entry x:Name="txtLocal" Grid.Row="7" Grid.Column="1"/>
-
-                        <Label 
-                             Text="Valor: "
-                             Style="{StaticResource SubHeadline}"
-                             FontSize="20"
-                             VerticalOptions="Center"
-                             Grid.Row="8" Grid.Column="0"/>
-
-                            <Entry x:Name="txtValorPed" Grid.Row="8" Grid.Column="1"/>
+                       
             </Grid>    
                     <Button
                             x:Name="CalculoBtn"
@@ -106,19 +84,66 @@
 
     <ContentPage
         Title="Lista Pedágio">
+
         <Border>
+            
             <VerticalStackLayout
                 Padding="30,0"
                 Spacing="25">
+
                 <Label
                      Text="Pedágio"
                      Style="{StaticResource Headline}"/>
 
                 <Grid HorizontalOptions="FillAndExpand"  ColumnDefinitions="170, *" RowDefinitions=" * , *, *, *, *" RowSpacing="20">
-                    
-                   
+
+                    <Label 
+                             Text="Local: "
+                             Style="{StaticResource SubHeadline}"
+                             FontSize="20"
+                             VerticalOptions="Center"
+                             Grid.Row="1" Grid.Column="0"/>
+
+                    <Entry x:Name="txtLocal" Grid.Row="1" Grid.Column="1"/>
+
+                    <Label 
+                             Text="Valor: "
+                             Style="{StaticResource SubHeadline}"
+                             FontSize="20"
+                             VerticalOptions="Center"
+                             Grid.Row="2" Grid.Column="0"/>
+
+                    <Entry x:Name="txtValorPed" Grid.Row="2" Grid.Column="1"/>
+
                 </Grid>
-            
+
+                <ListView x:Name="lst_Pedagio"
+                    ItemSelected="lst_Pedagio_ItemSelected">
+                    <ListView.Header>
+                        <Grid ColumnDefinitions="*, *, *">
+                            <Label Grid.Column="0" Text="Local"/>
+                            <Label Grid.Column="1" Text="valor"/>
+
+                        </Grid>
+                    </ListView.Header>
+
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <ViewCell.ContextActions>
+                                    <MenuItem Text="Remover" Clicked="MenuItem_Clicked_Remover"/>
+                                </ViewCell.ContextActions>
+                                <Grid 
+                                    ColumnDefinitions="3*, *, *, *">
+                                    <Label Grid.Row="0" Grid.Column="0" Text="{Binding local}"/>
+                                    <Label Grid.Row ="0" Grid.Column="1" Text="{Binding valor}"/>
+              
+                                </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+
+                </ListView>
             </VerticalStackLayout>
         </Border>
     </ContentPage>
