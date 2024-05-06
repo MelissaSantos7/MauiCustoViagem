@@ -1,4 +1,7 @@
 ﻿
+using MauiCustoViagem.Models;
+using System.Collections.ObjectModel;
+
 namespace MauiCustoViagem
 {
     public partial class MainPage : TabbedPage
@@ -6,6 +9,7 @@ namespace MauiCustoViagem
         string origem ;
         string destino;
 
+        ObservableCollection<Pedagio> pedagios = new ObservableCollection<Pedagio>();
 
         public MainPage()
         {
@@ -16,7 +20,7 @@ namespace MauiCustoViagem
 
         private void CalculoBtn_Clicked(object sender, EventArgs e)
         {
-            //decimal valor_total_pedagios = PropriedadesApp.ListaPedagios.Sum(item => item.Valor);
+            decimal valor_total_pedagios = PropriedadesApp.ListaPedagios.Sum(item => item.Valor);
 
             if (string.IsNullOrEmpty(txt_distancia.Text))
                 throw new Exception("Por favor, preencha a distância.");
@@ -33,7 +37,7 @@ namespace MauiCustoViagem
 
             decimal consumo_carro = (distancia / consumo) * preco_combustivel;
 
-            //decimal custo_total = consumo_carro + valor_total_pedagios;
+            decimal custo_total = consumo_carro + totalped;
 
             string origem = txt_origem.Text;
             string destino = txt_destino.Text;
@@ -63,24 +67,9 @@ namespace MauiCustoViagem
 
         }
 
-        private Task<bool> DisplayAlert(string v)
-        {
-            throw new NotImplementedException();
-        }
+        
 
-        private void LimparpedBtn_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-         
-
-        private void ToolbarItem_Clicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ToolbarItem_Clicked_1(object sender, EventArgs e)
+        private async void LimparpedBtn_Clicked(object sender, EventArgs e)
         {
 
         }
@@ -88,6 +77,31 @@ namespace MauiCustoViagem
         private void lst_Pedagio_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
 
+        }
+
+        private async void btnAdd_Clicked(object sender, EventArgs e)
+        {
+            try
+            {
+                Pedagio p = new Pedagio()
+                {
+                    local = txtLocal.Text,
+                    valor = double.Parse(txtValorPed.Text)
+                };
+                
+            }catch (Exception ex)
+            {
+
+            }
+          
+
+        }
+
+        private void btnSomarPed_Clicked(object sender, EventArgs e)
+        {
+            double totalped = lst_Pedagio.Sum(i => (i.Lugar * i));
+            string msg = $"O total é{totalped:C}";
+            DisplayAlert("Somatória", msg, "Fechar");
         }
     }
 

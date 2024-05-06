@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiCustoViagem.MainPage">
 
-   <ContentPage
+    
+    <ContentPage
        Title="Viagem">
      <ScrollView>
        <Border>
@@ -114,9 +115,33 @@
                              Grid.Row="2" Grid.Column="0"/>
 
                     <Entry x:Name="txtValorPed" Grid.Row="2" Grid.Column="1"/>
+                
 
                 </Grid>
 
+                <Grid >
+                    <Button
+                         Text="Add"
+                         x:Name="btnAdd"
+                         Clicked="btnAdd_Clicked"
+                         HorizontalOptions="End"/>
+
+                    <Button
+                        Text="Somar Pedágios"
+                        x:Name="btnSomarPed"
+                        Clicked="btnSomarPed_Clicked"
+                        HorizontalOptions="CenterAndExpand"/>
+
+                    <Button
+                        Text="Limpar"
+                        x:Name="BtnLimparPed"
+                        Clicked="LimparpedBtn_Clicked"
+                        HorizontalOptions="Start"/>
+
+                </Grid>
+
+               
+                      
                 <ListView x:Name="lst_Pedagio"
                     ItemSelected="lst_Pedagio_ItemSelected">
                     <ListView.Header>
@@ -130,9 +155,6 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <ViewCell.ContextActions>
-                                    <MenuItem Text="Remover" Clicked="MenuItem_Clicked_Remover"/>
-                                </ViewCell.ContextActions>
                                 <Grid 
                                     ColumnDefinitions="3*, *, *, *">
                                     <Label Grid.Row="0" Grid.Column="0" Text="{Binding local}"/>
@@ -147,4 +169,5 @@
             </VerticalStackLayout>
         </Border>
     </ContentPage>
+    
 </TabbedPage>
