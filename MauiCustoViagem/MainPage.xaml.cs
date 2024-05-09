@@ -1,4 +1,5 @@
 ﻿
+using MauiAppListaCompras;
 using MauiCustoViagem.Models;
 using System.Collections.ObjectModel;
 
@@ -6,9 +7,7 @@ namespace MauiCustoViagem
 {
     public partial class MainPage : TabbedPage
     {
-        string origem ;
-        string destino;
-
+      
         ObservableCollection<Pedagio> pedagios = new ObservableCollection<Pedagio>();
 
         public MainPage()
@@ -88,7 +87,9 @@ namespace MauiCustoViagem
                     local = txtLocal.Text,
                     valor = double.Parse(txtValorPed.Text)
                 };
-                
+                await App.Db.Insert(p);
+                await DisplayAlert("Sucesso!", "Pedágio inserido", "OK");
+                await Navigation.PushAsync(new MainPage());
             }catch (Exception ex)
             {
 
@@ -99,9 +100,9 @@ namespace MauiCustoViagem
 
         private void btnSomarPed_Clicked(object sender, EventArgs e)
         {
-            double totalped = lst_Pedagio.Sum(i => (i.Lugar * i));
-            string msg = $"O total é{totalped:C}";
-            DisplayAlert("Somatória", msg, "Fechar");
+            
+            //string msg = $"O total é{totalped:C}";
+            // DisplayAlert("Somatória", msg, "Fechar");
         }
     }
 

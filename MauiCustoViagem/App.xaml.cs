@@ -1,4 +1,5 @@
 ﻿using MauiAppListaCompras.Helpers;
+
 using MauiCustoViagem;
 
 namespace MauiAppListaCompras
@@ -32,6 +33,8 @@ namespace MauiAppListaCompras
 
             MainPage = new MainPage();
         }
+
+       
     }
 }
 
